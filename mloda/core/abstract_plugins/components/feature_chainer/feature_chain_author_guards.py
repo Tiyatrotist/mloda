@@ -386,7 +386,9 @@ def check_required_when(
             record_match_rejection(
                 owner_name,
                 f"required option '{key}' is absent, but {owner_name} declares it required "
-                f"(required_when predicate {predicate_name} is satisfied)",
+                f"(required_when predicate {predicate_name} is satisfied). If the value comes from context, "
+                "pass it in Options(context=...). For a chained name, child features receive only context "
+                "keys listed in the consumer's propagate_context_keys.",
             )
             return False
     return True
